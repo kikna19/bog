@@ -1,0 +1,54 @@
+<div class="accounts">
+  <h2>ანგარიშები</h2>
+  <div class="accounts__header">
+    <div class="accounts__header__main">
+      <div>ანგარიშები</div>
+      <button routerLink="/krn/accounts/create" mat-button>
+        <mat-icon>add_box</mat-icon>
+      </button>
+    </div>
+    <ng-template #noAccount>
+      <div class="noAccount">
+        <p>ჩანაწერი არ მოიძებნა</p>
+      </div>
+    </ng-template>
+  </div>
+  <ng-container *ngIf="loaderService.loading">
+    <app-loader></app-loader>
+  </ng-container>
+  <ng-container *ngIf="accounts.length; else noAccount">
+    <table mat-table [dataSource]="accounts" class="mat-elevation-z8">
+      <ng-container matColumnDef="owner">
+        <th mat-header-cell *matHeaderCellDef>მფლობელი</th>
+        <td mat-cell *matCellDef="let _account">
+          <ng-template [ngIf]="type(_account)" let-account="ngIf">{{account.clientFirstName}}</ng-template>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>სახელი</th>
+        <td mat-cell *matCellDef="let _account">
+          <ng-template [ngIf]="type(_account)" let-account="ngIf">{{account.accountName}}</ng-template>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>თანხა</th>
+        <td mat-cell *matCellDef="let _account">
+          <ng-template [ngIf]="type(_account)" let-account="ngIf">{{account.amount}}</ng-template>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let _account">
+          <ng-template [ngIf]="type(_account)" let-account="ngIf">
+            <button mat-mini-fab (click)="deleteAccount(account.accountKey)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </ng-template>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+  </ng-container>
+</div>
+

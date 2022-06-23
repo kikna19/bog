@@ -1,0 +1,22 @@
+  <form [formGroup]="form" class="form">
+    <h1>კლიენტის რეგისტრაცია</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>სახელი</mat-label>
+      <input matInput type="text" formControlName="name">
+      <mat-error *ngFor="let err of errors('name')">{{err}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>გვარი</mat-label>
+      <input matInput type="text" formControlName="surname">
+      <mat-error *ngFor="let err of errors('surname')">{{err}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Plus ქულები</mat-label>
+      <input matInput type="number" formControlName="points">
+      <mat-error *ngFor="let err of errors('points')">{{err}}</mat-error>
+    </mat-form-field>
+    <div class="btn">
+      <button mat-button (click)="createClient()">რეგისტრაცია</button>
+    </div>
+  </form>
+

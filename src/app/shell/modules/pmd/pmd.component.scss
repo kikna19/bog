@@ -1,0 +1,76 @@
+.form {
+  display: flex;
+  justify-content: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: calc(100% - 2rem);
+  margin-top: 2rem;
+  padding: 1rem;;
+  background: white;
+  height: auto;
+
+
+  .mat-form-field {
+    width: 50%;
+    height: auto;
+    border-radius: 5rem;
+    margin-top: 1rem;
+
+    .mat-form-field-label {
+      color: orange;
+      margin-left: 1.5rem;
+    }
+
+    .mat-select {
+      padding-left: 1.5rem;
+    }
+
+    .mat-select-arrow {
+      margin-right: 6.5rem;
+    }
+
+    .mat-input-element {
+      padding-left: 1.5rem;
+      width: 80%;
+    }
+
+  }
+
+  .mat-form-field-invalid {
+    .mat-form-field-label {
+      color: red;
+    }
+  }
+
+
+  .mat-form-field-appearance-outline {
+
+
+    .mat-form-field-outline {
+      color: orange;
+    }
+
+    .mat-form-field-outline-start {
+      border-radius: 3rem 0 0 3rem;
+      min-width: 1.5rem;
+    }
+
+    .mat-form-field-outline-end {
+      border-radius: 0 3rem 3rem 0;
+    }
+
+  }
+
+  .btn {
+    margin-top: 2rem;
+
+    button {
+      background-color: #e0751c;
+      color: white;
+    }
+  }
+
+}
+
+
+

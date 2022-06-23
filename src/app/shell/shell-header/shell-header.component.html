@@ -1,0 +1,23 @@
+<div class="header">
+  <div>
+    <a (click)="goMain()" class="header__logo">
+      <img src="/assets/images/logo.svg" alt="logo">
+    </a>
+  </div>
+  <div>
+    <button appPopup (toggle)="signOut = !signOut" (close)="close($event)" mat-button>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+  <ng-container *ngIf="signOut">
+    <div class="header__popup">
+      <div class="header__popup__body"></div>
+      <div class="header__popup__item">
+        <button mat-button (click)="logOut()">
+          გასვლა
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>
+

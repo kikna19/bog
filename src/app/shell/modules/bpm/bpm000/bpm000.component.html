@@ -1,0 +1,66 @@
+<div class="clients">
+  <h1>კლიენტის ძებნა</h1>
+  <div class="clients__search">
+    <div class="clients__search__inputs">
+      <mat-form-field>
+        <mat-label>სახელი</mat-label>
+        <input matInput [(ngModel)]="firstName" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>გვარი</mat-label>
+        <input matInput [(ngModel)]="lastName" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>კლიენტის უნიკალური</mat-label>
+        <input matInput [(ngModel)]="key" type="number">
+      </mat-form-field>
+    </div>
+    <div class="clients__search__btn">
+      <button mat-button (click)="search()">ძებნა</button>
+    </div>
+  </div>
+  <ng-container *ngIf="loadService.loading">
+    <app-loader></app-loader>
+  </ng-container>
+
+  <ng-container class="clients-header" *ngIf="clients$ | async as clients">
+    <ng-container *ngIf="!clients.length">
+      <div class="clients-header__no-clients">ჩანაწერი არ მოიძებნა</div>
+    </ng-container>
+    <ng-container *ngIf="clients.length">
+      <ng-container *ngIf="table">
+        <div class="clients-header__main">
+          <div>კლიენტები</div>
+          <button routerLink="/bpm/bpm001" mat-button>
+            <mat-icon>add_box</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+      <table mat-table [dataSource]="clients" class="mat-elevation-z8" #table>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>სახელი</th>
+          <td mat-cell *matCellDef="let _client" (click)="saveUser(_client)">
+            <ng-template [ngIf]="type(_client)" let-element="ngIf">{{element.firstName}}</ng-template>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="surname">
+          <th mat-header-cell *matHeaderCellDef>გვარი</th>
+          <td mat-cell *matCellDef="let _client" (click)="saveUser(_client)">
+            <ng-template [ngIf]="type(_client)" let-client="ngIf">{{client.lastName}}</ng-template>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="key">
+          <th mat-header-cell *matHeaderCellDef>კლიენტის უნიკალური</th>
+          <td mat-cell *matCellDef="let _client" (click)="saveUser(_client)">
+            <ng-template [ngIf]="type(_client)" let-client="ngIf">{{client.clientKey}}</ng-template>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="clientHeader"></tr>
+        <tr mat-row *matRowDef="let row; columns: clientHeader"></tr>
+      </table>
+    </ng-container>
+
+  </ng-container>
+</div>

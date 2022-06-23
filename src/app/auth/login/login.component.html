@@ -1,0 +1,17 @@
+<form [formGroup]="form" class="form">
+  <mat-form-field appearance="outline">
+    <mat-label>სახელი</mat-label>
+    <input matInput type="text" formControlName="name">
+    <mat-error *ngFor="let err of errors('name')">{{err}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>პაროლი</mat-label>
+    <input matInput type="password" formControlName="password">
+    <mat-error *ngFor="let err of errors('password')">{{err}}</mat-error>
+  </mat-form-field>
+  <div class="btn">
+    <button mat-button routerLink="/auth/register">რეგისტრაცია</button>
+    <button mat-button (click)="login()">შესვლა</button>
+  </div>
+</form>
+

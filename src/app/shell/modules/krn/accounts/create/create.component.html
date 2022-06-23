@@ -1,0 +1,17 @@
+<form [formGroup]="form" class="form">
+  <h1>ანგარიშის შექმნა</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>ანგარიშის სახელი</mat-label>
+    <input matInput type="text" formControlName="name">
+    <mat-error *ngFor="let err of errors('name')">{{err}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>თანხა</mat-label>
+    <input matInput type="number" formControlName="amount">
+    <mat-error *ngFor="let err of errors('amount')">{{err}}</mat-error>
+  </mat-form-field>
+  <div class="btn">
+    <button mat-button (click)="createAccount()">შესვლა</button>
+  </div>
+</form>
+

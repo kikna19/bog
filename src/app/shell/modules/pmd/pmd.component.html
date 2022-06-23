@@ -1,0 +1,32 @@
+<app-krnicp></app-krnicp>
+<form [formGroup]="form" class="form">
+  <h1>თანხის გადარიცხვა</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>გამგზავნი ანგარიში</mat-label>
+    <mat-select formControlName="sender">
+      <mat-option disabled [value]="'აირჩიე'">აირჩიე</mat-option>
+      <mat-option *ngFor="let acc of accounts" [value]="acc.accountKey">
+        {{acc.accountKey + ' - ' + acc.amount + '.00GEL ' + ' (' + acc.clientFirstName + ' ' + acc.clientLastName + ')'}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngFor="let err of errors('sender')">{{err}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>მიმღები ანგარიში</mat-label>
+    <mat-select formControlName="receiver">
+      <mat-option disabled [value]="'აირჩიე'">აირჩიე</mat-option>
+      <mat-option *ngFor="let acc of allAccounts" [value]="acc.accountKey">
+        {{acc.accountKey + ' - ' + acc.amount + '.00GEL ' + ' (' + acc.clientFirstName + ' ' + acc.clientLastName + ')'}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngFor="let err of errors('receiver')">{{err}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>თანხა</mat-label>
+    <input matInput type="number" formControlName="amount">
+    <mat-error *ngFor="let err of errors('amount')">{{err}}</mat-error>
+  </mat-form-field>
+  <div class="btn">
+    <button mat-button (click)="transfer()">გადარიცხვა</button>
+  </div>
+</form>

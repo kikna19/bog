@@ -1,0 +1,28 @@
+.error-container {
+  position: absolute;
+  top: calc(50% - 7rem);
+  left: calc((100% - (60% + 2rem)) / 2);
+  width: 60%;
+  height: 12rem;
+  z-index: 10;
+  padding: 1rem;
+  background: white;
+  border: .1rem solid red;
+  box-shadow: 10px 10px 400px 200px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 400px 200px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 400px 200px rgba(0,0,0,0.75);
+
+  div {
+    margin: 1rem 0 1rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: red;
+  }
+
+  button {
+    background: #e0751c;
+    margin-top: 3.5rem;
+    float: right;
+    color: white;
+  }
+}

@@ -1,0 +1,10 @@
+<ng-container *ngIf="showError">
+  <div class="error-container" appPopup (close)="close()">
+    <h1>შეცდომა</h1>
+    <mat-divider></mat-divider>
+    <div *ngIf="authService.err">{{authService.err | async}}</div>
+    <div *ngIf="accountService.err">{{accountService.err | async}}</div>
+    <mat-divider></mat-divider>
+    <button mat-button (click)="close()">დახურვა</button>
+  </div>
+</ng-container>

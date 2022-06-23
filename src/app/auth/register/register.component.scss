@@ -1,0 +1,67 @@
+.form {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-top: 2rem;
+
+
+  .mat-form-field {
+    width: 80%;
+    border-radius: 5rem;
+    margin-top: .5rem;
+
+    .mat-form-field-label {
+      color: orange;
+      margin-left: 1.5rem;
+
+    }
+
+    .mat-input-element {
+      padding-left: 1.5rem;
+      width: 80%;
+    }
+
+  }
+
+  .mat-form-field-invalid {
+    .mat-form-field-label {
+      color: red;
+    }
+  }
+
+
+  .mat-form-field-appearance-outline {
+
+
+    .mat-form-field-outline {
+      color: orange;
+    }
+
+    .mat-form-field-outline-start {
+      border-radius: 3rem 0 0 3rem;
+      min-width: 1.5rem;
+    }
+
+    .mat-form-field-outline-end {
+      border-radius: 0 3rem 3rem 0;
+    }
+
+  }
+
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+
+  button:nth-child(1) {
+    background-color: grey;
+  }
+
+  button:nth-child(2) {
+    background-color: #e0751c;
+    color: white;
+  }
+}

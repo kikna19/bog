@@ -1,0 +1,84 @@
+$border-color: rgba(0, 0, 0, .1);
+
+@mixin flex-box($direction,$justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
+.accounts {
+  margin-top: 1rem;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: calc(100% - 1rem);
+  background: white;
+
+
+  &__header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    border-radius: .2rem;
+    border: .1rem solid $border-color;
+    @include flex-box(column, center);
+    font-size: .8rem;
+
+    &__main {
+      width: calc(100% - 1rem);
+      @include flex-box(row, space-between);
+      align-items: center;
+      padding: .5rem 0 0 1rem;
+      font-weight: bold;
+
+      mat-icon {
+        color: #a2a2a2;
+      }
+    }
+
+  }
+
+  .noAccount {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+
+  table {
+    margin-top: 1rem;
+    border-radius: .2rem;
+
+    th {
+      text-align: center;
+
+    }
+
+    td {
+      text-align: start;
+      padding-left: 1rem;
+    }
+
+    td:nth-child(4) {
+      text-align: end;
+      padding-right: 1rem;
+    }
+
+    button {
+      background: transparent;
+      width: 2rem;
+      height: 2rem;
+      mat-icon {
+        color: #a2a2a2;
+        font-size: 1rem;
+      }
+    }
+
+    button:hover mat-icon {
+      color: red;
+      transition: 1s all ease;
+    }
+
+  }
+
+}

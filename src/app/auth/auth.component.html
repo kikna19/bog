@@ -1,0 +1,12 @@
+<mat-toolbar-row class="auth">
+  <div class="auth__background-pattern"></div>
+  <div class="auth__form-column">
+    <img src="/assets/images/logo.svg" alt="logo">
+    <div class="form">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-toolbar-row>
+<ng-container *ngIf="authService.err">
+  <app-shared></app-shared>
+</ng-container>

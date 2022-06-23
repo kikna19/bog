@@ -1,0 +1,16 @@
+<div class="shell">
+  <app-shell-header></app-shell-header>
+  <app-shell-sidebar></app-shell-sidebar>
+  <div class="shell__content">
+    <div class="ui container">
+      <div class="shell__content__operation-date">
+        საოპერაციო თარიღი: {{ curDate }}
+        <hr>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="accountService.err">
+  <app-shared></app-shared>
+</ng-container>
